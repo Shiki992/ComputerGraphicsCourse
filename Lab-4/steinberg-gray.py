@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import cv2
 
+
 def rgb2gray(I):
     return np.dot(I[:,:,:], [0.2989, 0.5870, 0.1140])
 
@@ -40,6 +41,7 @@ if __name__ == "__main__":
             I_GreyScale_Func[y, x] = new_value
 
             Error = old_value - new_value
+            print(Error)
 
             if (x<Width-1):
                 NewNumber = I_GreyScale_Func[y, x+1] + Error * 7 / 16
