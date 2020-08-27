@@ -11,6 +11,8 @@ def binthresh(I,thresh):
     return I>thresh
 if __name__ == "__main__":
     img = cv2.imread('Lena.jpg')  
+    avgerr=[]
+    avg=0
     # img_gray_mode = cv2.imread('Lena.jpg', cv2.IMREAD_GRAYSCALE) 
     plt.imshow(img)
     plt.show() 
@@ -41,7 +43,7 @@ if __name__ == "__main__":
             I_GreyScale_Func[y, x] = new_value
 
             Error = old_value - new_value
-            print(Error)
+            avgerr.append(Error)
 
             if (x<Width-1):
                 NewNumber = I_GreyScale_Func[y, x+1] + Error * 7 / 16
@@ -67,6 +69,10 @@ if __name__ == "__main__":
                 elif (NewNumber<0) : NewNumber=0
                 I_GreyScale_Func[y+1, x+1] = NewNumber
     I_appf = np.concatenate((I_GreyScale_Func,I_app), axis =1)
+    for i in avgerr:
+        avg+=i
+    avg=avg/len(avgerr)
+    print(avg)
     plt.imshow(I_appf, "gray")
     plt.show()
             
