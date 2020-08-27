@@ -20,13 +20,6 @@ if __name__ == "__main__":
     I_GreyScale = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
     I_GreyScale_Func = rgb2gray(img)
     bi=binthresh(I_GreyScale_Func,127)
-    # I_app = np.concatenate((I_GreyScale, I_GreyScale_Func), axis =1) 
-    # cv2.imshow("I_APP", I_app)
-    # cv2.waitKey()
-    # plt.imshow(I_GreyScale_Func, "gray")
-    # plt.show()
-    # plt.imshow(bi*255, "gray")
-    # plt.show()
     I_app = np.concatenate((I_GreyScale_Func, bi*255), axis =1)
 
     Height = I_GreyScale_Func.shape[0]
@@ -46,25 +39,25 @@ if __name__ == "__main__":
             avgerr.append(Error)
 
             if (x<Width-1):
-                NewNumber = I_GreyScale_Func[y, x+1] + Error * 7 / 16
+                NewNumber = I_GreyScale_Func[y, x+1] + Error * 3/8
                 if (NewNumber>255) : NewNumber=255
                 elif (NewNumber<0) : NewNumber=0
                 I_GreyScale_Func[y, x+1] = NewNumber
 
             if (x>0 and y<Height-1):
-                NewNumber = I_GreyScale_Func[y+1, x-1] + Error * 3 / 16
+                NewNumber = I_GreyScale_Func[y+1, x-1] + Error * 0/8
                 if (NewNumber>255) : NewNumber=255
                 elif (NewNumber<0) : NewNumber=0
                 I_GreyScale_Func[y+1, x-1] = NewNumber
 
             if (y<Height-1):
-                NewNumber= I_GreyScale_Func[y+1, x] + Error * 5 / 16
+                NewNumber= I_GreyScale_Func[y+1, x] + Error * 3/8
                 if (NewNumber>255) : NewNumber=255
                 elif (NewNumber<0) : NewNumber=0
                 I_GreyScale_Func[y+1, x] = NewNumber
 
             if (y<Height-1 and x<Width-1):
-                NewNumber = I_GreyScale_Func[y+1, x+1] + Error * 1 / 16
+                NewNumber = I_GreyScale_Func[y+1, x+1] + Error * 2 / 8
                 if (NewNumber>255) : NewNumber=255
                 elif (NewNumber<0) : NewNumber=0
                 I_GreyScale_Func[y+1, x+1] = NewNumber
