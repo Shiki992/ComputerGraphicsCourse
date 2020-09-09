@@ -155,7 +155,6 @@ int main (int argc, char** argv)
     a = atoi(argv[1]);
 	b = atoi(argv[2]);
 	
-	float m,b,q,j;
 
 	glutInitWindowSize(1366, 768);  
 	glutInitWindowPosition(0, 0); 	
