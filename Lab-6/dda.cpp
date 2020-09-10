@@ -1,4 +1,3 @@
-// C program for DDA line generation 
 #include<stdio.h> 
 #include<iostream>
 #include<GL/glut.h> 
@@ -22,8 +21,8 @@ void DDA(void)
 
 	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy); 
 
-	float Xa = dx /  steps; 
-	float Ya = dy /  steps; 
+	float Xa = dx /(float)steps; 
+	float Ya = dy /(float)steps; 
 
 	float X = X0; 
 	float Y = Y0;
@@ -31,8 +30,8 @@ void DDA(void)
 	for (int i = 0; i <= steps; i++) 
 	{ 
 		glVertex2f(X,Y); 		
-        X += Xa; 
-		Y += Ya;		 
+        X += round(Xa); 
+		Y += round(Ya);		 
          
 	} 
     glEnd();
@@ -50,7 +49,7 @@ int main(int argc, char** argv)
 	Y1=atoi(argv[4]);
 
 	glutInitWindowSize(1366, 768);  
-	glutInitWindowPosition(0, 0); 	
+	glutInitWindowPosition(100, 100); 	
 	
 
 	glutCreateWindow("line"); 		

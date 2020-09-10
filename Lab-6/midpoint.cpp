@@ -1,4 +1,3 @@
-// C++ program for Mid-point line generation 
 #include<bits/stdc++.h>
 #include<GL/glut.h>  
 using namespace std; 
@@ -14,8 +13,7 @@ void midpoint()
 	glColor3f(1.0, 1.0, 1.0);
 	gluOrtho2D(-780, 780, -420, 420);
 
- 
-	// cout << x << "," << y << "\n"; 
+
 
     glBegin(GL_POINTS);
 	while (x < X1) 
@@ -32,14 +30,13 @@ void midpoint()
 			d += (dy - dx); 
 			y++; 
 		}  
-		// cout << x << "," << y << "\n"; 
+		cout << x << "," << y << "\n"; 
         glVertex2f(x,y); 
 	} 
     glEnd();
 	glFlush();
 } 
 
-// Driver program 
 int main(int argc, char** argv) 
 { 
 	glutInit(&argc, argv); 						  
