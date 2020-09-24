@@ -103,7 +103,7 @@ int main(int argc, char** argv)
 	glutInitWindowPosition(0, 0); 	
 	
 
-	glutCreateWindow("Circle using Midpoints"); 		
+	glutCreateWindow("Ellipse using Midpoints"); 		
 	glutDisplayFunc(midptellipse); 
 	
 	glutMainLoop(); 
