@@ -17,8 +17,8 @@ void DDA(int x1,int y11,int x2,int y2)
 
 	int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy); 
 
-	float Xa = dx /(float)steps; 
-	float Ya = dy /(float)steps; 
+	float Xa = round(dx /(float)steps); 
+	float Ya = round(dy /(float)steps); 
 
 	float X = x1; 
 	float Y = y11;
@@ -26,8 +26,8 @@ void DDA(int x1,int y11,int x2,int y2)
 	for (int i = 0; i <= steps; i++) 
 	{ 
 		glVertex2f(X,Y); 		
-        X += round(Xa); 
-		Y += round(Ya);		 
+        X += Xa; 
+		Y += Ya;		 
          
 	} 
     glEnd();
