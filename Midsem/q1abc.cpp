@@ -105,7 +105,7 @@ void Rotate() {
 
 void Scale() {
 	glTranslatef(100, 100, 0);
-	glScalef(d3, 1, 1);
+	glScalef(d3, d3, 1);
 	glTranslatef(-100, -100, 0);
     glColor3f(0.0, 0.5, 1.0);
     glBegin(GL_POLYGON);
